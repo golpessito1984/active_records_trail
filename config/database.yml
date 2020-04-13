@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  database: active_records_development
+  username: active_records
+  password: active_records
+  port: <%= ENV['DB_PORT']%>
+  host: <%= ENV['DB_HOST'] %>
+  min_messages: warning
+  pool: <%= Integer(ENV.fetch("DB_POOL", 5)) %>
+  reaping_frequency: <%= Integer(ENV.fetch("DB_REAPING_FREQUENCY", 10)) %>
+  timeout: 5000
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  database:  active_records_test
+
+production:
+  <<: *default
+  database: active_records_production
