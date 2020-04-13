@@ -41,6 +41,11 @@ Things you may want to cover:
   docker-compose.yml (If you want to test the app without install postgresql)
   docker-compose up -d
   ```
+* Database migrations
+  ```
+  rails g model Role name:string billable:boolean
+  rails g model Person name:string role:references
+  ```
 
 * How to run the test suite
 
